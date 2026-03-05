@@ -27,7 +27,7 @@ const App: React.FC = () => {
   const renderProjectDetail = (project: Project) => {
     return (
       <div className="page-transition max-w-4xl mx-auto px-6 space-y-8 pb-10">
-        <button 
+        <button
           onClick={() => setSelectedProjectId(null)}
           className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold hover:translate-x-[-4px] transition-transform mb-6"
         >
@@ -48,6 +48,17 @@ const App: React.FC = () => {
               </span>
             ))}
           </div>
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-xl font-bold text-sm hover:opacity-80 transition-opacity"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+              Voir sur GitHub
+            </a>
+          )}
         </div>
 
         <div className="grid gap-8 mt-10">
@@ -78,7 +89,7 @@ const App: React.FC = () => {
   };
 
   const renderPage = () => {
-    switch(currentPage) {
+    switch (currentPage) {
       case 'home':
         return (
           <div className="page-transition space-y-16">
@@ -101,7 +112,7 @@ const App: React.FC = () => {
                 </button>
               </div>
             </section>
-            
+
             <section className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 pb-20">
               <div onClick={() => setCurrentPage('about')} className="p-10 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-[2.5rem] cursor-pointer hover:border-blue-500 hover:shadow-2xl transition-all group overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 -mr-10 -mt-10 rounded-full group-hover:scale-150 transition-transform"></div>
@@ -132,7 +143,7 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-400">À propos</h2>
               <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300 font-light">{PORTFOLIO_DATA.about}</p>
             </section>
-            
+
             <div className="grid md:grid-cols-2 gap-10">
               <section className="space-y-8">
                 <h3 className="text-2xl font-bold border-b pb-4 border-gray-200 dark:border-gray-800">Éducation</h3>
@@ -146,7 +157,7 @@ const App: React.FC = () => {
                   ))}
                 </div>
               </section>
-              
+
               <section className="space-y-8">
                 <h3 className="text-2xl font-bold border-b pb-4 border-gray-200 dark:border-gray-800">Compétences</h3>
                 <div className="flex flex-wrap gap-3">
@@ -172,8 +183,8 @@ const App: React.FC = () => {
             <p className="text-gray-500 text-center mb-20 text-lg">Cliquez sur un projet pour explorer mon travail technique</p>
             <div className="grid md:grid-cols-2 gap-12">
               {PORTFOLIO_DATA.projects.map(project => (
-                <div 
-                  key={project.id} 
+                <div
+                  key={project.id}
                   onClick={() => handleProjectClick(project.id)}
                   className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-[3rem] overflow-hidden hover:shadow-[0_40px_80px_-20px_rgba(37,99,235,0.2)] hover:border-blue-500 transition-all cursor-pointer"
                 >
@@ -194,8 +205,22 @@ const App: React.FC = () => {
                     </div>
                     <h3 className="text-3xl font-bold mb-4 group-hover:text-blue-600 transition-colors leading-tight">{project.title}</h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-8 line-clamp-2 leading-relaxed text-lg">{project.description}</p>
-                    <div className="inline-flex items-center text-blue-600 dark:text-blue-400 font-black text-sm uppercase tracking-widest">
-                      Détails techniques <svg className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <div className="flex items-center justify-between">
+                      <div className="inline-flex items-center text-blue-600 dark:text-blue-400 font-black text-sm uppercase tracking-widest">
+                        Détails techniques <svg className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                      </div>
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-1.5 px-4 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-xl text-xs font-bold hover:opacity-80 transition-opacity"
+                        >
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" /></svg>
+                          GitHub
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -238,7 +263,7 @@ const App: React.FC = () => {
           <div className="page-transition max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 pt-16 pb-20">
             <div className="space-y-12">
               <div>
-                <h2 className="text-5xl font-black mb-8 tracking-tighter leading-none">Parlons de<br/>votre futur projet</h2>
+                <h2 className="text-5xl font-black mb-8 tracking-tighter leading-none">Parlons de<br />votre futur projet</h2>
                 <p className="text-gray-600 dark:text-gray-400 text-xl leading-relaxed font-medium">
                   Je recherche activement une alternance en Data Engineering & IA pour 2026. Passionné par la donnée, le machine learning et les LLMs, prêt à transformer vos données en valeur business concrète.
                 </p>
@@ -295,13 +320,13 @@ const App: React.FC = () => {
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-      <Navbar 
-        currentPage={currentPage} 
-        setCurrentPage={setCurrentPage} 
+      <Navbar
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         isDarkMode={isDarkMode}
         toggleTheme={toggleTheme}
       />
-      
+
       <main className="pt-28 pb-20 px-6 min-h-[calc(100vh-80px)]">
         <div className="max-w-7xl mx-auto">
           {renderPage()}

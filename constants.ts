@@ -65,7 +65,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "edubot-ia",
       title: "EduBot IA — Chatbot LLM d'Orientation E-Learning",
       description: "Application web multi-pages (Chat, Dashboard, Profil) intégrant un LLM pour orienter les apprenants dans leurs parcours de formation, avec authentification complète via Supabase.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
+      image: "/projects/edubot.png",
+      link: "https://github.com/Alhamzah24/curious-learning-bot",
       tags: ["React 18", "TypeScript", "Supabase", "LLM API", "Prompt Engineering", "shadcn-ui", "Vite"],
       fullDescription: [
         {
@@ -99,7 +100,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "nba-prediction",
       title: "NBA SwishBrain — Prédicteur IA Full-Stack en Temps Réel",
       description: "Application full-stack (Flask API + React) prédisant les résultats NBA en temps réel via XGBoost, avec scraping ESPN live, analyse des blessures et interface utilisateur interactive.",
-      image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=1200",
+      image: "/projects/nba.png",
+      link: "https://github.com/Alhamzah24/Nba-SwishBrain",
       tags: ["Python", "Flask", "XGBoost", "React", "Scikit-learn", "ESPN API", "Web Scraping", "Pandas"],
       fullDescription: [
         {
@@ -134,7 +136,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "data-viz-flask",
       title: "Visualisation de Données — Graphes & Géospatial",
       description: "Interface Flask pour visualiser des réseaux de données complexes avec NetworkX, Pandas, Matplotlib et traitement géospatial via Shapely.",
-      image: "https://images.unsplash.com/photo-1551288049-bbbda546697a?auto=format&fit=crop&q=80&w=1200",
+      image: "/projects/dataviz.png",
+      link: "https://github.com/Alhamzah24/2024-ece-bach",
       tags: ["Python", "Flask", "NetworkX", "Matplotlib", "Pandas", "Shapely", "Seaborn"],
       fullDescription: [
         {
@@ -160,7 +163,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "spendwise",
       title: "SpendWise — Gestion Financière Full-Stack",
       description: "Outil complet de suivi budgétaire avec authentification Firebase, tableau de bord temps réel et génération automatique de rapports PDF.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+      image: "/projects/spendwise.png",
+      link: "https://github.com/Alhamzah24/bbbb",
       tags: ["PHP", "MySQL", "Firebase", "TCPDF"],
       fullDescription: [
         {
@@ -186,7 +190,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "pokemon-classification",
       title: "Pokémon Image Classification — SVM & PCA",
       description: "Pipeline modulaire de Computer Vision sur 8 000 images et 150 classes. PyTorch pour le chargement, PCA pour la réduction de dimension, SVM RBF avec GridSearchCV pour la classification.",
-      image: "https://images.unsplash.com/photo-1613771404721-1f92d799e49f?auto=format&fit=crop&q=80&w=1200",
+      image: "/projects/pokemon.png",
+      link: "https://github.com/Alhamzah24/pokemon_project",
       tags: ["Python", "PCA", "SVM", "Computer Vision", "Scikit-learn", "PyTorch", "GridSearchCV", "NumPy"],
       fullDescription: [
         {
