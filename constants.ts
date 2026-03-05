@@ -7,7 +7,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
   bio: "Étudiant en Mastère Data Engineering & IA à l'EFREI Paris, passionné par la Data Science, l'IA et les infrastructures Cloud. À la recherche d'une alternance en Data Engineering ou IA pour 2026.",
   about: "Actuellement en Mastère Data Engineering & Intelligence Artificielle à l'EFREI Paris (rentrée 2026), je combine une expertise en développement full-stack (React, Node.js, Java) avec des compétences solides en Data Engineering et Machine Learning (XGBoost, SVM, LLM). Mon expérience chez AWS m'a permis de maîtriser les environnements cloud à grande échelle, la résolution d'incidents complexes et l'automatisation via Python. J'ai réduit le temps de résolution d'incidents de ~30% grâce à des scripts d'automatisation, et j'ai conçu des projets ML et LLM de bout en bout, du pipeline de données à la mise en production.",
   email: "alhamzah.husamuldeen@edu.ece.fr",
-  linkedin: "https://linkedin.com/in/hamzahhusam",
+  linkedin: "https://www.linkedin.com/in/hamzah-husam-bb0069242",
   skills: [
     {
       category: "Data & IA",
