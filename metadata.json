@@ -1,0 +1,7 @@
+{
+  "name": "Professional AI Portfolio",
+  "description": "A high-end, responsive professional portfolio featuring a Gemini-powered AI assistant that can answer questions about the owner's career, skills, and projects.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
