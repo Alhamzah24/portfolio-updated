@@ -64,67 +64,69 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       id: "edubot-ia",
       title: "EduBot IA — Chatbot LLM d'Orientation E-Learning",
-      description: "Application Full-Stack intégrant des LLMs (OpenAI, Groq) pour guider les apprenants dans leurs parcours de formation via Prompt Engineering.",
+      description: "Application web multi-pages (Chat, Dashboard, Profil) intégrant un LLM pour orienter les apprenants dans leurs parcours de formation, avec authentification complète via Supabase.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
-      tags: ["React 18", "Node.js", "PostgreSQL", "LLM API", "Prompt Engineering", "JWT", "Vite"],
+      tags: ["React 18", "TypeScript", "Supabase", "LLM API", "Prompt Engineering", "shadcn-ui", "Vite"],
       fullDescription: [
         {
           title: "Le Concept",
-          content: "EduBot IA est une solution innovante visant à personnaliser l'orientation des étudiants. L'IA agit comme un coach pédagogique capable de comprendre le niveau actuel de l'utilisateur et ses aspirations pour lui recommander les modules e-learning les plus pertinents."
+          content: "EduBot IA est une solution innovante visant à personnaliser l'orientation des étudiants. L'IA agit comme un coach pédagogique capable de comprendre le niveau actuel de l'utilisateur et ses aspirations pour lui recommander les modules e-learning les plus pertinents. L'application inclut des pages dédiées : Landing, Login, Signup, Chat IA, Dashboard de suivi et Profil utilisateur."
         },
         {
           title: "Architecture Full-Stack",
           content: [
-            "Frontend : Interface développée avec React 18 et Tailwind CSS pour une expérience utilisateur fluide et moderne.",
-            "Backend : Serveur Node.js avec Express gérant la logique métier et les appels API sécurisés.",
-            "Base de données : PostgreSQL pour stocker les profils utilisateurs, les historiques de chat et les catalogues de cours.",
-            "Sécurité : Authentification via JWT (JSON Web Tokens) et hachage des mots de passe avec bcrypt."
+            "Frontend : Interface React 18 + TypeScript avec Vite, composants UI avec shadcn-ui et Tailwind CSS.",
+            "Backend-as-a-Service : Supabase pour la base de données PostgreSQL, l'authentification et le stockage en temps réel.",
+            "Routing : Navigation multi-pages (/, /login, /signup, /chat, /dashboard, /profile) avec React Router.",
+            "State Management : React Query (@tanstack/react-query) pour la gestion du cache et des requêtes asynchrones."
           ]
         },
         {
           title: "Intégration de l'IA & Prompt Engineering",
           content: [
-            "Connexion via API à des modèles de langage avancés (Groq, OpenAI).",
-            "Mise en place d'une stratégie de Prompt Engineering pour garantir des réponses pédagogiques précises et contextualisées.",
+            "Connexion via API à des modèles de langage avancés pour des recommandations pédagogiques personnalisées.",
+            "Mise en place d'une stratégie de Prompt Engineering pour garantir des réponses précises et contextualisées.",
             "Gestion du contexte de conversation pour un suivi cohérent des échanges multi-tours."
           ]
         },
         {
-          title: "Défi Technique — Latence IA",
-          content: "Le principal défi a été la gestion de la latence des réponses de l'IA. Implémentation d'un système de streaming de texte et d'indicateurs de chargement optimisés pour maintenir l'engagement de l'utilisateur et réduire la latence perçue."
+          title: "Défi Technique — UX & Temps Réel",
+          content: "Gestion de la latence des réponses IA avec indicateurs de chargement optimisés, et synchronisation en temps réel des données utilisateur via Supabase Realtime pour maintenir l'engagement tout au long du parcours."
         }
       ]
     },
     {
       id: "nba-prediction",
-      title: "NBA Match Prediction — Pipeline ML & XGBoost",
-      description: "Pipeline data complet (ingestion, nettoyage, feature engineering) et modèles XGBoost pour prédire vainqueur et scores avec +70% de précision.",
+      title: "NBA SwishBrain — Prédicteur IA Full-Stack en Temps Réel",
+      description: "Application full-stack (Flask API + React) prédisant les résultats NBA en temps réel via XGBoost, avec scraping ESPN live, analyse des blessures et interface utilisateur interactive.",
       image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=1200",
-      tags: ["Python", "XGBoost", "Scikit-learn", "Pandas", "Feature Engineering", "Linux"],
+      tags: ["Python", "Flask", "XGBoost", "React", "Scikit-learn", "ESPN API", "Web Scraping", "Pandas"],
       fullDescription: [
         {
-          title: "Problématique",
-          content: "Prédire le résultat d'un match NBA est complexe car il dépend de multiples facteurs : forme actuelle, historique des confrontations, fatigue (back-to-back), avantage du terrain, statistiques avancées, etc."
+          title: "Application Full-Stack Live",
+          content: "NBA SwishBrain est bien plus qu'un simple modèle ML : c'est une application complète avec un backend Flask exposant une API REST et un frontend React (Vite) permettant de visualiser les matchs du jour, obtenir des prédictions et analyser les statistiques en temps réel à partir de l'API ESPN."
         },
         {
-          title: "Pipeline Data Complet",
+          title: "Pipeline Data & Feature Engineering",
           content: [
-            "Ingestion : Récupération de données historiques multi-saisons via web scraping et datasets publics.",
-            "Nettoyage : Traitement des données manquantes, normalisation des statistiques avec Pandas et NumPy.",
-            "Feature Engineering : Création de variables personnalisées — moyenne glissante sur 5 matchs, avantage du terrain, taux de victoire récent, fatigue back-to-back."
+            "Scraping live : Récupération des matchs du jour et de demain depuis l'API ESPN via des endpoints dédiés (/api/schedule).",
+            "Données blessures : Scraping Rotowire pour intégrer l'impact des absences de joueurs clés sur les prédictions.",
+            "Feature Engineering : Moyennes glissantes, avantage terrain, taux de victoire récent, fatigue back-to-back, statistiques d'équipe avancées.",
+            "Nettoyage : Pipeline multi-fichiers (cleaning.py, cleaning2.py...) pour normaliser et consolider les données multi-saisons."
           ]
         },
         {
           title: "Modélisation XGBoost",
           content: [
-            "Classification : XGBClassifier pour prédire le vainqueur (Binary Classification).",
-            "Régression : XGBRegressor pour estimer l'écart de points et le score final.",
-            "Validation : Cross-validation k-fold et analyse de la matrice de confusion pour minimiser les faux positifs."
+            "Classification : XGBClassifier prédit le vainqueur avec un score de confiance en pourcentage.",
+            "Régression : XGBRegressor estime le score exact de chaque équipe et le total de points.",
+            "Analyse paris : Calcul automatique du niveau de risque (Secure/Risky) et signal Over/Under.",
+            "Impact blessures : Pondération de l'impact des absences directement dans le calcul de prédiction."
           ]
         },
         {
-          title: "Résultats",
-          content: "Le modèle a atteint une précision supérieure à 70% sur les prédictions de victoire, surpassant les modèles de base traditionnels. Évaluation via accuracy, RMSE et courbes d'apprentissage multi-saisons."
+          title: "Interface & Résultats",
+          content: "Le frontend React permet de cliquer sur un match en direct depuis le planning ESPN pour obtenir une prédiction complète (vainqueur, scores, confiance %, analyse paris) ou de créer un matchup personnalisé entre deux équipes. Précision >70% sur la prédiction du vainqueur."
         }
       ]
     },
@@ -183,28 +185,30 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       id: "pokemon-classification",
       title: "Pokémon Image Classification — SVM & PCA",
-      description: "Pipeline complet de Computer Vision sur ~8 000 images et 150 classes : extraction de features, réduction de dimension PCA et classification SVM à noyau RBF.",
+      description: "Pipeline modulaire de Computer Vision sur 8 000 images et 150 classes. PyTorch pour le chargement, PCA pour la réduction de dimension, SVM RBF avec GridSearchCV pour la classification.",
       image: "https://images.unsplash.com/photo-1613771404721-1f92d799e49f?auto=format&fit=crop&q=80&w=1200",
-      tags: ["Python", "PCA", "SVM", "Computer Vision", "Scikit-learn", "PyTorch", "NumPy"],
+      tags: ["Python", "PCA", "SVM", "Computer Vision", "Scikit-learn", "PyTorch", "GridSearchCV", "NumPy"],
       fullDescription: [
         {
           title: "Approche — ML Classique vs Deep Learning",
-          content: "Contrairement aux approches Deep Learning modernes, ce projet se focalise sur l'extraction de caractéristiques manuelles et le Machine Learning classique pour comprendre les fondements de la Computer Vision et maîtriser le compromis biais-variance."
+          content: "Ce projet démontre qu'il est possible d'atteindre de bonnes performances en Computer Vision sans réseau de neurones profond. L'objectif est de maîtriser les fondamentaux : extraction de features manuelles, réduction de dimension, et classification supervisée avec SVM — en comprenant chaque étape du pipeline."
         },
         {
-          title: "Pipeline de Traitement",
+          title: "Architecture Modulaire du Pipeline",
           content: [
-            "Dataset : ~8 000 images réparties sur 150 classes de Pokémon.",
-            "Prétraitement : Redimensionnement, conversion en niveaux de gris et vectorisation des images.",
-            "PCA : Réduction de dimensionnalité pour conserver les composantes les plus discriminantes et accélérer l'entraînement.",
-            "SVM RBF : Classification avec optimisation des hyperparamètres par validation croisée."
+            "Chargement : PyTorch DataLoader pour un chargement efficace des 8 000 images réparties en 150 classes (une par Pokémon).",
+            "Prétraitement : Redimensionnement uniforme, conversion en niveaux de gris et vectorisation via les transformations PyTorch.",
+            "PCA (src/models/pca.py) : Réduction de dimensionnalité — les composantes principales sont sauvegardées (pca_model.pkl) pour une réutilisation en inférence.",
+            "SVM RBF (src/models/svm.py) : Optimisation des hyperparamètres (C, gamma) par GridSearchCV — résultats sauvegardés dans gridsearch_results.json.",
+            "Évaluation (src/evaluation/) : Génération de la matrice de confusion (PNG), rapport de classification par classe et fichier d'accuracy."
           ]
         },
         {
-          title: "Évaluation du Modèle",
+          title: "Résultats & Apprentissages",
           content: [
-            "Métriques : Accuracy globale, rapport de classification par classe et matrice de confusion.",
-            "Apprentissages : Maîtrise du compromis biais-variance et de l'importance cruciale de la réduction de dimension pour éviter le surapprentissage (overfitting)."
+            "Métriques complètes : Accuracy globale, précision/rappel/F1 par classe et matrice de confusion visualisée.",
+            "Performance : Les features PCA permettent d'accélérer l'entraînement tout en maintenant une bonne capacité de généralisation sur 150 classes.",
+            "Leçon clé : Maîtrise du compromis biais-variance et du pipeline ML de bout en bout, du prétraitement à la sauvegarde des modèles."
           ]
         }
       ]
